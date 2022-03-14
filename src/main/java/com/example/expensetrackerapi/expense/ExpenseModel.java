@@ -1,6 +1,6 @@
 package com.example.expensetrackerapi.expense;
 
-import com.example.expensetrackerapi.user.UserModel;
+import com.example.expensetrackerapi.user.Employee;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +22,7 @@ public class ExpenseModel {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
-    private UserModel user;
+    private Employee user;
     private String name;
     private Double value;
 }
