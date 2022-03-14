@@ -6,7 +6,7 @@ import lombok.*;
 
 import javax.persistence.Id;
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -26,7 +26,7 @@ public class Employee {
     private String password;
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
-    private Set<ExpenseModel> expenses;
+    private List<ExpenseModel> expenses;
 
     public Employee(String name, String password) {
         this.name = name;
