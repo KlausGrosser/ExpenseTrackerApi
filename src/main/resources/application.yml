@@ -1,0 +1,20 @@
+server:
+  port: 8089
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password:
+    url: jdbc:postgresql://localhost:5432/march11
+    username:
+  jpa:
+    hibernate:
+      ddl-auto: 'create-drop'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    open-in-view: true
