@@ -15,12 +15,13 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-public class UserModel {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Long Id;
+    @Column(unique = true)
     private String name;
     private String password;
     @OneToMany(mappedBy = "user")

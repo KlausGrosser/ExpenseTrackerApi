@@ -1,7 +1,7 @@
 package com.example.expensetrackerapi.expense;
 
-import com.example.expensetrackerapi.user.UserModel;
-import com.example.expensetrackerapi.user.UserRepository;
+import com.example.expensetrackerapi.user.Employee;
+import com.example.expensetrackerapi.user.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ public class ExpenseController {
     private ExpenseRepository expenseRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private EmployeeRepository userRepository;
 
     @GetMapping
     public List<ExpenseModel> getAllExpenses() {
@@ -36,7 +36,7 @@ public class ExpenseController {
     public ExpenseModel addExpenseToUser(@PathVariable (value ="userId") Long userId,
                                          @RequestBody ExpenseModel newExpense){
 
-        UserModel user = userRepository.findById(userId).orElseThrow();
+        Employee user = userRepository.findById(userId).orElseThrow();
         newExpense.setUser(user);
         user.getExpenses().add(newExpense);
         return expenseRepository.save(newExpense);
